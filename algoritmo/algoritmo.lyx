@@ -143,7 +143,62 @@ status open
 \begin_inset Formula $\mathbf{A}$
 \end_inset
 
-,R,T
+, R, T
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+Comment{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+: relational model, R: Base relations symbols, T: Target relations symbols
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \begin_inset ERT
 status open
 
@@ -320,7 +375,7 @@ For{
 \end_inset
 
 
-\begin_inset Formula $\mathbf{A}_{0}\in\textrm{submodels}(\mathbf{A},\textrm{spectrum[0]})$
+\begin_inset Formula $\mathbf{A}_{0}\in\textrm{submodels}(\mathbf{A},\textrm{\textbf{head}(spectrum)})$
 \end_inset
 
 
@@ -350,7 +405,15 @@ If{
 
 \end_inset
 
-not isOpenDefR(A, spectrum[1:])
+not isOpenDefR(
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+, R, T, 
+\series bold
+tail
+\series default
+(spectrum))
 \begin_inset ERT
 status open
 
@@ -527,7 +590,7 @@ status open
 \begin_inset Formula $\mathbf{A}$
 \end_inset
 
-, spectrum
+, R, T, spectrum
 \begin_inset ERT
 status open
 
@@ -555,7 +618,7 @@ If{
 \end_inset
 
 
-\begin_inset Formula $\mathbf{A}\cong\mathbf{S}$
+\begin_inset Formula $\mathbf{A}_{R}\cong\mathbf{S}_{R}$
 \end_inset
 
 , where 
@@ -564,6 +627,105 @@ If{
 
  by 
 \begin_inset Formula $\gamma$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+Comment{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\gamma$
+\end_inset
+
+ iso from 
+\begin_inset Formula $\mathbf{A}_{R}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbf{S}_{R}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+Comment{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ is represented by 
+\begin_inset Formula $\mathbf{S}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
 \end_inset
 
 
@@ -753,7 +915,7 @@ For{
 \end_inset
 
 
-\begin_inset Formula $\gamma\in\textrm{aut}(\mathbf{A})$
+\begin_inset Formula $\gamma\in\textrm{aut}(\mathbf{A}_{R})$
 \end_inset
 
 
@@ -1001,7 +1163,7 @@ For{
 \end_inset
 
 
-\begin_inset Formula $\mathbf{A}_{0}\in\textrm{submodels}(\mathbf{A},\textrm{ spectrum[0]})$
+\begin_inset Formula $\mathbf{A}_{0}\in\textrm{submodels}(\mathbf{A},\textrm{ \textbf{head}(spectrum)})$
 \end_inset
 
 
@@ -1035,7 +1197,11 @@ not isOpenDefR(
 \begin_inset Formula $\mathbf{A}_{0}$
 \end_inset
 
-, spectrum[1:])
+, 
+\series bold
+tail
+\series default
+(spectrum))
 \begin_inset ERT
 status open
 
