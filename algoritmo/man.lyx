@@ -68,12 +68,33 @@
 
 \begin_body
 
-\begin_layout Standard
-Repo: https://github.com/pablogventura/relationaldef
+\begin_layout Subsection*
+Usage
 \end_layout
 
 \begin_layout Standard
-To run:
+Tool is developing on the following github repository:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/pablogventura/relationaldef
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To run it:
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 inline false
 status open
@@ -88,32 +109,292 @@ $ python3 main.py < example.model
 
 \end_layout
 
-\begin_layout Standard
-Input model format:
+\begin_layout Subsubsection*
+Input
 \end_layout
 
 \begin_layout Standard
-A line containing a list of elements of universe, separated by spaces
-\end_layout
-
-\begin_layout Standard
-Empty line
+Tool receives input from stdin in this format.
 \end_layout
 
 \begin_layout Standard
 First line describes model universe.
  Must be a list of elements separated by spaces.
  Then must be an empty line.
- Next lines describes relations.
+\end_layout
+
+\begin_layout Standard
+Next lines describes relations.
  For each relation must be a first line containing relation name, number
  of tuples and arity separated by spaces followed by a line for each tuple
  containing elements separated by spaces.
  At the end of relation, must be a empty line.
  So it is able to start another.
- Relations which names started in "T" will be target relations, and the
- rest will be base relations.
- Tool will return if target relations are open-definable by base relations.
+\end_layout
+
+\begin_layout Standard
+Relations which names started in "T" will be target relations, and the rest
+ will be base relations.
+\end_layout
+
+\begin_layout Standard
+For example, a relational model 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+, where 
+\begin_inset Formula $A=\{0,1,2,3,4,5,6,7,8,9\}$
+\end_inset
+
+ with relations 
+\begin_inset Formula $R0^{2},R1^{2},T0^{3}$
+\end_inset
+
+ is represented by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+0 1 2 3 4 5 6 7 8 9
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+R0 2 2
+\end_layout
+
+\begin_layout Plain Layout
+
+6 4
+\end_layout
+
+\begin_layout Plain Layout
+
+3 1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+R1 2 2
+\end_layout
+
+\begin_layout Plain Layout
+
+0 3
+\end_layout
+
+\begin_layout Plain Layout
+
+2 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+T0 3 3
+\end_layout
+
+\begin_layout Plain Layout
+
+0 0 2
+\end_layout
+
+\begin_layout Plain Layout
+
+9 4 8
+\end_layout
+
+\begin_layout Plain Layout
+
+3 9 2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Output
+\end_layout
+
+\begin_layout Standard
+Tool will return to stdout if target relations are open-definable by base
+ relations.
  In the case it is not definable, returns an counterexample.
+ Also returns spectrum, diversity, number of Minion calls and number of
+ isomorphisms and automorphisms checked at the last moment.
+\end_layout
+
+\begin_layout Standard
+For example, for the earlier example, output is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "tabsize=2"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Spectrum = [3, 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+NOT DEFINABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+Counterexample:
+\end_layout
+
+\begin_layout Plain Layout
+
+Automorphism(
+\end_layout
+
+\begin_layout Plain Layout
+
+		0->1
+\end_layout
+
+\begin_layout Plain Layout
+
+		1->0
+\end_layout
+
+\begin_layout Plain Layout
+
+		2->2
+\end_layout
+
+\begin_layout Plain Layout
+
+	from:
+\end_layout
+
+\begin_layout Plain Layout
+
+		RelationalModel(universe=[0, 1, 2],
+\end_layout
+
+\begin_layout Plain Layout
+
+			relations={'T0': {(0, 0, 2)},
+\end_layout
+
+\begin_layout Plain Layout
+
+								'R1': {(2, 2)},
+\end_layout
+
+\begin_layout Plain Layout
+
+								'R0': set()}))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+State before abort:
+\end_layout
+
+\begin_layout Plain Layout
+
+	Diversity = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Auts = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Isos = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+	1 calls to Minion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, T0 is not open-definable.
+ Counterexample is an automorphism of submodel generated by 
+\begin_inset Formula $\{0,1,2\}$
+\end_inset
+
+.
 \end_layout
 
 \end_body

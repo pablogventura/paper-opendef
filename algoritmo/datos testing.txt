@@ -1,0 +1,9 @@
+timeout 45 minutos
+
+Intel® Xeon® Processor E5-2620 v3
+6 nucleos, 12 subprocesos
+2.40GHz
+
+128 GB de ram
+
+corrimos 10 en paralelo
