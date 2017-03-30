@@ -4,10 +4,14 @@
 \begin_header
 \textclass article
 \begin_preamble
+\DeclareMathOperator{\spec}{spec}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -92,7 +96,7 @@ Open Definability Algorithm
 
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:constelacion primer orden"
+name "alg:open"
 
 \end_inset
 
@@ -163,14 +167,32 @@ status open
 
 \begin_layout Plain Layout
 
-	
+ 
 \backslash
-State{
+Comment{
 \end_layout
 
 \end_inset
 
 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+: relational model
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -183,11 +205,7 @@ Comment{
 
 \end_inset
 
-
-\begin_inset Formula $\mathbf{A}$
-\end_inset
-
-: relational model, R: Base relations symbols, T: Target relations symbols
+R: Base relations symbols
 \begin_inset ERT
 status open
 
@@ -199,6 +217,22 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+Comment{
+\end_layout
+
+\end_inset
+
+T: Target relations symbols
 \begin_inset ERT
 status open
 
@@ -663,69 +697,6 @@ Comment{
 
  to 
 \begin_inset Formula $\mathbf{S}_{R}$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-		
-\backslash
-State{
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-Comment{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $\mathbf{A}$
-\end_inset
-
- is represented by 
-\begin_inset Formula $\mathbf{S}$
-\end_inset
-
- in 
-\begin_inset Formula $\mathcal{S}$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
 \end_inset
 
 
@@ -1322,6 +1293,92 @@ end{algorithmic}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:open"
+
+\end_inset
+
+ calculates if relations 
+\begin_inset Formula $T$
+\end_inset
+
+ are Open-Definable by relations 
+\begin_inset Formula $B$
+\end_inset
+
+ in a relational model 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+.
+ We assume implemented the following functions:
+\end_layout
+
+\begin_layout Description
+calculateSpectrum(
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+,T) Where 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ is a relational model and 
+\begin_inset Formula $T$
+\end_inset
+
+ is a relation symbols list and returns a reverse sorted list containing
+ 
+\begin_inset Formula $\spec(\bigcup_{r\in T}r^{\mathbf{A}})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+submodels(
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+,size) Where 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ is a relational model and size is a integer.
+ Generates all 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ submodels (all subsets of 
+\begin_inset Formula $A$
+\end_inset
+
+, as 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ is relational) that have cardinality size.
+\end_layout
+
+\begin_layout Standard
+Notation 
+\begin_inset Formula $\mathbf{A}_{R}$
+\end_inset
+
+ denotes reduct obtained by relations 
+\begin_inset Formula $R$
+\end_inset
+
+ (omitting relations 
+\begin_inset Formula $T$
+\end_inset
+
+).
 \end_layout
 
 \end_body
